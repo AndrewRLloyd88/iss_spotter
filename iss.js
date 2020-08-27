@@ -24,10 +24,30 @@ const fetchMyIP = (callback) => {
     } else {
       const ip = JSON.parse(body).ip;
       console.log(ip);
-      
+
       callback(null, ip);
     }
   });
 };
 
-module.exports = { fetchMyIP };
+const fetchCoordsByIP = function(ip, callback) {
+  request(`https://ipvigilante.com/json/${ip}`, (error, response, body) => {
+    if (error) {
+      callback(error, null);
+      return;
+    }
+
+    else if (response.statusCode !== 200) {
+      callback(Error(`Status Code ${response.statusCode} when fetching Coordinates for IP: ${body}`), null);
+      return;
+    } else {
+
+    const { latitude, longitude } = JSON.parse(body).data;
+
+    callback(null, { latitude, longitude });
+    }
+  });
+};
+
+
+module.exports = { fetchMyIP, fetchCoordsByIP };
