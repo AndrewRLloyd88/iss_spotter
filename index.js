@@ -11,18 +11,18 @@ const printNextFlyovers = (passTimes) => {
     console.log(`Next pass at ${datetime} for ${duration} seconds!`);
   }
   
-//  for(key of passTimes){
-// console.log(key)
-//   // const [times, times2, times3, times4, times5] = (passTimes[key])
-//   // console.log(times, times2, times3, times4, times5)
-//  }
+  //  for(key of passTimes){
+  // console.log(key)
+  //   // const [times, times2, times3, times4, times5] = (passTimes[key])
+  //   // console.log(times, times2, times3, times4, times5)
+  //  }
   
   // console.log(times)
   // for(const time in passTimes){
   //   for(passtime of time)
   //  times.push(passtime)
   //  console.log(times)
-  }
+};
 
 
 nextISSTimesForMyLocation((error, passTimes) => {
